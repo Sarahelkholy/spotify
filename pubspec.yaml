@@ -38,6 +38,8 @@ dependencies:
   flutter_native_splash: ^2.4.6
   # An SVG rendering and widget library for Flutter
   flutter_svg: ^2.2.1
+  # for adapting screen and font szie
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_test:
