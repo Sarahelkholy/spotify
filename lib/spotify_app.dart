@@ -14,20 +14,22 @@ class SpotifyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [BlocProvider(create: (_) => ThemeCubit())],
-      child: ScreenUtilInit(
-        designSize: const Size(375, 812),
-        minTextAdapt: true,
-        builder: (_, child) {
-          return BlocBuilder<ThemeCubit, ThemeMode>(
-            builder: (context, mode) => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'spotify app',
-              darkTheme: AppTheme.darkTheme,
-              theme: AppTheme.lightTheme,
-              themeMode: mode,
-              onGenerateRoute: appRouter.generateRoute,
-              initialRoute: Routes.getStartedScreen,
-            ),
+      child: BlocBuilder<ThemeCubit, ThemeMode>(
+        builder: (context, mode) {
+          return ScreenUtilInit(
+            designSize: const Size(375, 812),
+            minTextAdapt: true,
+            builder: (_, child) {
+              return MaterialApp(
+                debugShowCheckedModeBanner: false,
+                title: 'spotify app',
+                darkTheme: AppTheme.darkTheme,
+                theme: AppTheme.lightTheme,
+                themeMode: mode,
+                onGenerateRoute: appRouter.generateRoute,
+                initialRoute: Routes.getStartedScreen,
+              );
+            },
           );
         },
       ),
