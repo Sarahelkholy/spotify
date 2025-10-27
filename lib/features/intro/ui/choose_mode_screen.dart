@@ -2,11 +2,13 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spotify/core/helpers/spacing.dart';
 import 'package:spotify/core/theme/app_text_styles.dart';
 import 'package:spotify/core/widgets/basic_app_button.dart';
+import 'package:spotify/features/intro/logic/cubit/theme_cubit.dart';
 
 class ChooseModeScreen extends StatelessWidget {
   const ChooseModeScreen({super.key});
@@ -44,19 +46,29 @@ class ChooseModeScreen extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          ClipOval(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                              child: Container(
-                                height: 70.h,
-                                width: 70.w,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff30393C).withOpacity(0.5),
-                                  shape: BoxShape.circle,
+                          GestureDetector(
+                            onTap: () {
+                              context.read<ThemeCubit>().updateTheme(
+                                ThemeMode.dark,
+                              );
+                            },
+                            child: ClipOval(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 10,
+                                  sigmaY: 10,
                                 ),
-                                child: SvgPicture.asset(
-                                  'assets/vectors/Moon.svg',
-                                  fit: BoxFit.none,
+                                child: Container(
+                                  height: 70.h,
+                                  width: 70.w,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff30393C).withOpacity(0.5),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/vectors/Moon.svg',
+                                    fit: BoxFit.none,
+                                  ),
                                 ),
                               ),
                             ),
@@ -71,19 +83,29 @@ class ChooseModeScreen extends StatelessWidget {
                       horizontalSpace(40),
                       Column(
                         children: [
-                          ClipOval(
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                              child: Container(
-                                height: 70.h,
-                                width: 70.w,
-                                decoration: BoxDecoration(
-                                  color: Color(0xff30393C).withOpacity(0.5),
-                                  shape: BoxShape.circle,
+                          GestureDetector(
+                            onTap: () {
+                              context.read<ThemeCubit>().updateTheme(
+                                ThemeMode.light,
+                              );
+                            },
+                            child: ClipOval(
+                              child: BackdropFilter(
+                                filter: ImageFilter.blur(
+                                  sigmaX: 10,
+                                  sigmaY: 10,
                                 ),
-                                child: SvgPicture.asset(
-                                  'assets/vectors/Sun.svg',
-                                  fit: BoxFit.none,
+                                child: Container(
+                                  height: 70.h,
+                                  width: 70.w,
+                                  decoration: BoxDecoration(
+                                    color: Color(0xff30393C).withOpacity(0.5),
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: SvgPicture.asset(
+                                    'assets/vectors/Sun.svg',
+                                    fit: BoxFit.none,
+                                  ),
                                 ),
                               ),
                             ),
