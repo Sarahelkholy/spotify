@@ -40,6 +40,15 @@ dependencies:
   flutter_svg: ^2.2.1
   # for adapting screen and font szie
   flutter_screenutil: ^5.9.3
+  # State management
+  flutter_bloc: ^9.1.1
+  #An extension to the bloc state management library which automatically persists and restores bloc states
+  hydrated_bloc: ^10.1.1
+  # getting commonly used locations on host platform file systems
+  path_provider: ^2.1.5
+
+
+
 
 dev_dependencies:
   flutter_test:
