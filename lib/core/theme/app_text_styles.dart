@@ -40,8 +40,43 @@ class AppTextStyles {
     fontWeight: FontWeightHelper.medium,
   );
 
+  static TextStyle font16DarkGreyMedium = TextStyle(
+    fontSize: 16.sp,
+    color: AppColors.darkGrey,
+    fontWeight: FontWeightHelper.medium,
+  );
+
+  static TextStyle font16GreyMedium = TextStyle(
+    fontSize: 16.sp,
+    color: AppColors.grey,
+    fontWeight: FontWeightHelper.medium,
+  );
+
   static TextStyle font26Bold = TextStyle(
     fontSize: 26.sp,
     fontWeight: FontWeightHelper.bold,
+  );
+
+  static TextStyle font30Bold = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeightHelper.bold,
+  );
+
+  static TextStyle font13DarkGreyRegular = TextStyle(
+    fontSize: 13.sp,
+    color: AppColors.darkGrey,
+    fontWeight: FontWeightHelper.regular,
+  );
+
+  static TextStyle font13GreyRegular = TextStyle(
+    fontSize: 13.sp,
+    color: AppColors.grey,
+    fontWeight: FontWeightHelper.regular,
+  );
+
+  static TextStyle font14PrimaryRegular = TextStyle(
+    fontSize: 14.sp,
+    color: AppColors.primary,
+    fontWeight: FontWeightHelper.regular,
   );
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/core/helpers/extentions.dart';
 import 'package:spotify/core/helpers/is_dark_mode.dart';
 import 'package:spotify/core/helpers/spacing.dart';
+import 'package:spotify/core/routing/routes.dart';
 import 'package:spotify/core/theme/app_text_styles.dart';
 import 'package:spotify/core/widgets/basic_app_bar.dart';
 import 'package:spotify/core/widgets/basic_app_button.dart';
@@ -60,7 +62,9 @@ class ChooseLoginOrSignupScreen extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: BasicAppButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.pushNamed(Routes.registerScreen);
+                          },
                           title: 'Register',
                         ),
                       ),
@@ -68,7 +72,9 @@ class ChooseLoginOrSignupScreen extends StatelessWidget {
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            context.pushNamed(Routes.signinScreen);
+                          },
                           child: Text(
                             'Sign In',
                             style: context.isDarkMode
