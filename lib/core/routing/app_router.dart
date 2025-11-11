@@ -5,6 +5,7 @@ import 'package:spotify/features/auth/presentation/register_screen.dart';
 import 'package:spotify/features/auth/presentation/signin_screen.dart';
 import 'package:spotify/features/intro/ui/choose_mode_screen.dart';
 import 'package:spotify/features/intro/ui/get_started_screen.dart';
+import 'package:spotify/features/root/presentation/root_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -20,7 +21,10 @@ class AppRouter {
       case Routes.signinScreen:
         return MaterialPageRoute(builder: (_) => const SigninScreen());
       case Routes.registerScreen:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return MaterialPageRoute(builder: (_) => RegisterScreen());
+
+      case Routes.rootScreen:
+        return MaterialPageRoute(builder: (_) => const RootScreen());
       default:
         return null;
     }

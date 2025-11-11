@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify/core/di/dependency_injection.dart';
 import 'package:spotify/core/helpers/extentions.dart';
 import 'package:spotify/core/helpers/is_dark_mode.dart';
 import 'package:spotify/core/helpers/spacing.dart';
@@ -8,9 +9,15 @@ import 'package:spotify/core/routing/routes.dart';
 import 'package:spotify/core/theme/app_text_styles.dart';
 import 'package:spotify/core/widgets/basic_app_bar.dart';
 import 'package:spotify/core/widgets/basic_app_button.dart';
+import 'package:spotify/features/auth/data/models/create_user_req.dart';
+import 'package:spotify/features/auth/domain/usecases/signup.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+  RegisterScreen({super.key});
+
+  final TextEditingController _fullName = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +57,27 @@ class RegisterScreen extends StatelessWidget {
               _passwordField(context),
               verticalSpace(30),
 
-              BasicAppButton(onPressed: () {}, title: 'Create Account'),
+              BasicAppButton(
+                onPressed: () async {
+                  var result = await getIt<SignupUseCase>().call(
+                    CreateUserReq(
+                      fullName: _fullName.text.toString(),
+                      email: _email.text.toString(),
+                      password: _password.text.toString(),
+                    ),
+                  );
+                  result.fold(
+                    (l) {
+                      var snackbar = SnackBar(content: Text(l));
+                      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+                    },
+                    (r) {
+                      context.pushReplacementNamed(Routes.rootScreen);
+                    },
+                  );
+                },
+                title: 'Create Account',
+              ),
               verticalSpace(20),
 
               GestureDetector(
@@ -83,6 +110,7 @@ class RegisterScreen extends StatelessWidget {
 
   Widget _fullNameField(BuildContext context) {
     return TextField(
+      controller: _fullName,
       decoration: InputDecoration(
         hintText: 'Full Name',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
@@ -91,6 +119,7 @@ class RegisterScreen extends StatelessWidget {
 
   Widget _emailField(BuildContext context) {
     return TextField(
+      controller: _email,
       decoration: InputDecoration(
         hintText: 'Enter Email',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),
@@ -99,6 +128,7 @@ class RegisterScreen extends StatelessWidget {
 
   Widget _passwordField(BuildContext context) {
     return TextField(
+      controller: _password,
       decoration: InputDecoration(
         hintText: 'Password',
       ).applyDefaults(Theme.of(context).inputDecorationTheme),

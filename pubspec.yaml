@@ -40,13 +40,20 @@ dependencies:
   flutter_svg: ^2.2.1
   # for adapting screen and font szie
   flutter_screenutil: ^5.9.3
+  # firebase setup
   firebase_core: ^4.2.0
+  firebase_auth: ^6.1.2
+  # For dependency injection
+  get_it: ^8.2.0
   # State management
   flutter_bloc: ^9.1.1
   #An extension to the bloc state management library which automatically persists and restores bloc states
   hydrated_bloc: ^10.1.1
   # getting commonly used locations on host platform file systems
   path_provider: ^2.1.5
+  #
+  dartz: ^0.10.1
+
 
 
 
