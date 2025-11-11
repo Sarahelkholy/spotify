@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^2.2.1
   # for adapting screen and font szie
   flutter_screenutil: ^5.9.3
+  firebase_core: ^4.2.0
   # State management
   flutter_bloc: ^9.1.1
   #An extension to the bloc state management library which automatically persists and restores bloc states

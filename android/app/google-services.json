@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "250033962687",
+    "project_id": "spotify-4c93d",
+    "storage_bucket": "spotify-4c93d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250033962687:android:501e1b8a9578791df8500a",
+        "android_client_info": {
+          "package_name": "com.example.spotify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAq1Vp3zdz-P3gOrBDC-Fg1PEa_z9REMqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
